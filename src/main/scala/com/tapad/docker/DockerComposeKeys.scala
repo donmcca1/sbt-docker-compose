@@ -1,5 +1,6 @@
 package com.tapad.docker
 
+import sbt._
 import java.io._
 
 object DockerComposeKeys extends DockerComposeKeysLocal

@@ -1,6 +1,10 @@
 package com.tapad.docker
 
 import com.tapad.docker.DockerComposeKeys._
+import sbt.{ Project, _ }
+
+import scala.collection.Seq
+import scala.sys.process.Process
 
 trait ComposeTestRunner extends SettingsHelper with PrintFormatting {
   val testDebugPortArg = "-debug"
