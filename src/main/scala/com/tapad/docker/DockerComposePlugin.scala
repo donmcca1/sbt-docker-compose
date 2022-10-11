@@ -87,6 +87,7 @@ object DockerComposePlugin extends DockerComposePluginLocal {
     val testPassUseSpecs2 = DockerComposeKeys.testPassUseSpecs2
     val testPassUseCucumber = DockerComposeKeys.testPassUseCucumber
     val testPassUseZio = DockerComposeKeys.testPassUseZio
+    val testPassZioTestClass = DockerComposeKeys.testPassZioTestClass
     val suppressColorFormatting = DockerComposeKeys.suppressColorFormatting
     val scalaTestJar = DockerComposeKeys.testDependenciesClasspath
     val variablesForSubstitution = DockerComposeKeys.variablesForSubstitution

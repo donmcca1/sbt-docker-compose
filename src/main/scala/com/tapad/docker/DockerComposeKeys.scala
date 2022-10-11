@@ -27,6 +27,7 @@ trait DockerComposeKeysLocal {
   val testPassUseSpecs2 = settingKey[Boolean]("True if Specs2 is to be used to execute the test pass. This defaults to False and ScalaTest is used.")
   val testPassUseCucumber = settingKey[Boolean]("True if Cucumber is to be used to execute the test pass. This defaults to False and ScalaTest is used.")
   val testPassUseZio = settingKey[Boolean]("True if Zio is to be used to execute the test pass. This defaults to False and ScalaTest is used.")
+  val testPassZioTestClass = settingKey[String]("The zio test class to run.")
   val runningInstances = AttributeKey[List[RunningInstanceInfo]]("runningInstances", "For Internal Use: Contains information on the set of running Docker Compose instances.")
   val variablesForSubstitution = settingKey[Map[String, String]]("A Map[String,String] of variables to substitute in your docker-compose file. These are substituted by the plugin and not using environment variables.")
   val variablesForSubstitutionTask = taskKey[Map[String, String]]("An sbt task that returns a Map[String,String] of variables to substitute in your docker-compose file. These are substituted by the plugin and not using environment variables.")
