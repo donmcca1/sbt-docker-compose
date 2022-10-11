@@ -1,6 +1,6 @@
 package com.tapad.docker
 
-import com.tapad.docker.DockerComposeKeys.{ suppressColorFormatting, testCasesJar, testTagsToExecute }
+import com.tapad.docker.DockerComposeKeys.{ suppressColorFormatting, testCasesJar, testTagsToExecute, testPassZioTestClass }
 import sbt.State
 
 import scala.collection.Seq
@@ -124,9 +124,12 @@ object ExecuteInput {
   val Zio: PartialFunction[ExecuteInput, TestRunnerCommand] = {
     case input: ExecuteInput if input.matches(".*zio-test.*") =>
       val testParamsList = input.testParamsList
+
+      val className = input.runner.getSetting(testPassZioTestClass)(input.state)
+
       val testRunnerCommand = (Seq("java", input.debugSettings) ++
         input.testParamsList ++
-        Seq("-cp", input.testDependencyClasspath, "com.enelx.fdr.bom.integration.BomApiSpec") ++
+        Seq("-cp", input.testDependencyClasspath, className) ++
         input.testArgs ++
         testParamsList).filter(_.nonEmpty)
 
